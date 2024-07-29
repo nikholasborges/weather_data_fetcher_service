@@ -30,7 +30,7 @@ git clone https://github.com/nikholasborges/weather-data-fetcher-service.git
 cd weather-data-fetcher-service
 ```
 
-### Configure the enviroment
+### Configure the Environment
 
 The application uses environment variables for configuration. You can set these variables in a `.env` file in the project root. An example `.env` file:
 
@@ -55,7 +55,7 @@ make install
 
 ### Run Locally
 
-To run the application locally, fist you need to run the redis docker container:
+To run the application locally, first you need to run the Redis Docker container:
 
 ```sh
 docker run -d -p 6379:6379 redis/redis-stack
@@ -103,16 +103,16 @@ make clean
 
 ### Build and Run as a Docker Container
 
-To build and run the Docker container, execute the code below, this will execute the redis container and the service container:
+To build and run the Docker container, execute the code below, this will execute the Redis container and the service container:
 
 ```sh
-docker-compose up --build
+make run-containers
 ```
 
 To run the containers in detached mode:
 
 ```sh
-docker-compose up --build -d
+make run-containers-dettached
 ```
 
 ### Stop Docker Containers
@@ -120,10 +120,10 @@ docker-compose up --build -d
 To stop the Docker containers (if in detached mode):
 
 ```sh
-docker-compose down
+make stop-containers
 ```
 
-## Documentations
+## Documentation
 
 Once the project is running on localhost, you can access the API documentation through the following links:
 
@@ -132,18 +132,91 @@ http://localhost:8000/api/v1/docs
 http://localhost:8000/api/v2/docs
 ```
 
-## Makefile Targets
+## How to Use the API
 
-The `Makefile` includes several targets to streamline common tasks:
+### Upload City List
 
-- `make install`: Install dependencies using Poetry.
-- `make run`: Run the application.
-- `make dev`: Run the application in development mode.
-- `make lint`: Lint the code using flake8.
-- `make test`: Run tests using pytest and generate a coverage report.
-- `make clean`: Clean up the project directory.
-- `make build-docker`: Build the Docker image.
-- `make run-docker`: Run the Docker container.
+**Endpoint**: `/api/v1/upload-city-list`
+
+**Method**: `POST`
+
+**Description**: Upload a list of city IDs for weather data processing.
+
+**Request Body**:
+```json
+{
+  "process_id": 1,
+  "cities_ids": [123, 456, 789]
+}
+```
+
+**Response**:
+```json
+{
+  "message": "Cities uploaded successfully."
+}
+```
+
+### Process City Data in Bulk
+
+**Endpoint**: `/api/v2/process-city-data-in-bulk`
+
+**Method**: `POST`
+
+**Description**: Process weather data for a list of cities in bulk.
+
+**Request Body**:
+```json
+{
+  "process_id": 1
+}
+```
+
+**Response**:
+```json
+{
+  "message": "City data processing started."
+}
+```
+
+### Get City Data Process
+
+**Endpoint**: `/api/v1/get-city-data-process`
+
+**Method**: `GET`
+
+**Description**: Fetch the processed weather data for a specific process ID.
+
+**Query Parameters**:
+- `process_id` (int): The ID of the process to fetch data for.
+
+**Response**:
+```json
+{
+    "process_id": 1,
+    "request_datetime": "2024-07-29 23:01:50",
+    "total_cities": 167,
+    "progress_percent": "35.93%",
+    "process_id": 1,
+    "results": [
+        {
+            "city_id": 3439525,
+            "temperature": 6.15,
+            "humidity": 59
+        },
+        {
+            "city_id": 3439781,
+            "temperature": 5.39,
+            "humidity": 73
+        },
+        {
+            "city_id": 3440645,
+            "temperature": 7.13,
+            "humidity": 73
+        },
+    ]
+}
+```
 
 ## Contributing
 
@@ -152,4 +225,3 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 This project is licensed under the MIT License.
-```
