@@ -19,16 +19,28 @@ app2.add_middleware(
 )
 
 
-@app1.post("/upload-city-list")
+@app1.post(
+    "/upload-city-list",
+    summary="Upload City List",
+    description="Upload a list of city IDs for weather data processing.",
+)
 async def upload_city_list_route(parameters: UploadParameter):
     return await upload_city_list_view(parameters)
 
 
-@app2.post("/process-city-data-in-bulk")
+@app2.post(
+    "/process-city-data-in-bulk",
+    summary="Process City Data in Bulk",
+    description="Process weather data for a list of cities in bulk.",
+)
 async def process_city_data_route(parameters: ProcessParameter):
     return await process_city_data_view(parameters)
 
 
-@app1.get("/get-city-data-process")
+@app1.get(
+    "/get-city-data-process",
+    summary="Get City Data Process",
+    description="Fetch the processed weather data for a specific process ID.",
+)
 async def get_city_data_fetch_route(process_id: int):
     return await get_city_data_view(parameters={"process_id": process_id})
