@@ -19,6 +19,8 @@ This project is a FastAPI-based application designed to fetch and process weathe
 - Docker
 - Docker Compose
 
+By default, this API utilizes OpenWeatherAPI to retrieve weather data. To use this service, please create a free account and generate an API key on the OpenWeatherAPI website: https://openweathermap.org/api.
+
 ## Installation
 
 ### Clone the Repository
@@ -119,6 +121,15 @@ To stop the Docker containers (if in detached mode):
 
 ```sh
 docker-compose down
+```
+
+## Documentations
+
+Once the project is running on localhost, you can access the API documentation through the following links:
+
+```
+http://localhost:8000/api/v1/docs
+http://localhost:8000/api/v2/docs
 ```
 
 ## Makefile Targets
