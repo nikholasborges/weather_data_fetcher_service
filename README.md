@@ -121,6 +121,15 @@ To stop the Docker containers (if in detached mode):
 docker-compose down
 ```
 
+## Documentations
+
+Once the project is running on localhost, you can access the API documentation through the following links:
+
+```
+http://localhost:8000/api/v1/docs
+http://localhost:8000/api/v2/docs
+```
+
 ## Makefile Targets
 
 The `Makefile` includes several targets to streamline common tasks:
