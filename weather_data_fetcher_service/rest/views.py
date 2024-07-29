@@ -18,6 +18,15 @@ from weather_data_fetcher_service.core.repositories.redis_repository import (
 
 
 async def upload_city_list_view(parameters):
+    """
+    Upload a list of city IDs for weather data processing.
+
+    Args:
+        parameters (UploadParameter): The parameters containing process_id and list of city IDs.
+
+    Returns:
+        JSONResponse: A JSON response with the status and message.
+    """
 
     process_data = CityWeatherProcessData(
         process_id=parameters.process_id,
@@ -36,6 +45,15 @@ async def upload_city_list_view(parameters):
 
 
 async def process_city_data_view(parameters):
+    """
+    Process weather data for a list of cities in bulk.
+
+    Args:
+        parameters (ProcessParameter): The parameters containing the process_id.
+
+    Returns:
+        JSONResponse: A JSON response with the status and message.
+    """
 
     request_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     process_data = CityWeatherProcessData(
@@ -57,7 +75,15 @@ async def process_city_data_view(parameters):
 
 
 async def get_city_data_view(parameters):
+    """
+    Fetch the processed weather data for a specific process ID.
 
+    Args:
+        parameters (dict): The parameters containing the process_id.
+
+    Returns:
+        JSONResponse: A JSON response with the status and the data or message.
+    """
     process_data = CityWeatherProcessData(process_id=parameters.get("process_id"))
 
     process = CityWeatherDataFetcher(
