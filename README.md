@@ -1,4 +1,3 @@
-```markdown
 # Weather Data Fetcher Service
 
 This project is a FastAPI-based application designed to fetch and process weather data in bulk.
