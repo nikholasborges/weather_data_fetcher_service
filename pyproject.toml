@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "weather-data-fetcher-service"
+version = "0.1.0"
+description = ""
+authors = ["Nikholas Borges <nikholas.borges@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.9.5"
+flask = {extras = ["async"], version = "^3.0.3"}
+rich = "^13.7.1"
+redis = "^5.0.7"
+pydantic-settings = "^2.3.4"
+fastapi = "^0.111.1"
+async-timeout = "^4.0.3"
+pytest = "^8.3.2"
+uvicorn = "^0.30.3"
+flake8 = "^7.1.0"
+pytest-asyncio = "^0.23.8"
+coverage = "^7.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

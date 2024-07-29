@@ -1,0 +1,19 @@
+[flake8]
+max-line-length = 100
+exclude = 
+    .git,
+    __pycache__,
+    build,
+    dist,
+    .venv,
+    .tox,
+    .nox,
+    .mypy_cache,
+    .pytest_cache,
+    .coverage,
+    .ipynb_checkpoints,
+    .vscode,
+    .idea,
+    .env
+
+ignore = W503, W504, E203

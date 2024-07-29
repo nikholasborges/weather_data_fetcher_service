@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+      build: .
+      container_name: weather-data-fetcher-service
+      ports:
+        - "8000:8000"
+      depends_on:
+        - redis
+      environment:
+        OPEN_WEATHER_BASE_URL: ${OPEN_WEATHER_BASE_URL}
+        OPEN_WEATHER_API_KEY: ${OPEN_WEATHER_API_KEY}
+        REDIS_HOST: redis
+        REDIS_PORT: 6379
+        REDIS_DB: 0
+        ROUTE_TIMEOUT_IN_SECONDS: ${ROUTE_TIMEOUT_IN_SECONDS}
+
+  redis:
+      image: redis/redis-stack
+      container_name: redis-stack
+      ports:
+        - "6379:6379"  
