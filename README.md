@@ -1,8 +1,3 @@
-Sure, I can add a "How to Use" section to your `README.md` that explains how to interact with your API routes.
-
-### Updated `README.md`
-
-```markdown
 # Weather Data Fetcher Service
 
 This project is a FastAPI-based application designed to fetch and process weather data in bulk.
@@ -211,4 +206,3 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 This project is licensed under the MIT License.
-```
