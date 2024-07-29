@@ -200,20 +200,20 @@ http://localhost:8000/api/v2/docs
     "process_id": 1,
     "results": [
         {
-			"city_id": 3439525,
-			"temperature": 6.15,
-			"humidity": 59
-		},
-		{
-			"city_id": 3439781,
-			"temperature": 5.39,
-			"humidity": 73
-		},
-		{
-			"city_id": 3440645,
-			"temperature": 7.13,
-			"humidity": 73
-		},
+            "city_id": 3439525,
+            "temperature": 6.15,
+            "humidity": 59
+        },
+        {
+            "city_id": 3439781,
+            "temperature": 5.39,
+            "humidity": 73
+        },
+        {
+            "city_id": 3440645,
+            "temperature": 7.13,
+            "humidity": 73
+        },
     ]
 }
 ```
