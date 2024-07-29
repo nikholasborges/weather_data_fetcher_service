@@ -193,9 +193,28 @@ http://localhost:8000/api/v2/docs
 **Response**:
 ```json
 {
-  "process_id": 1,
-  "temperature": 25.0,
-  "humidity": 75.0
+    "process_id": 1,
+    "request_datetime": "2024-07-29 23:01:50",
+    "total_cities": 167,
+    "progress_percent": "35.93%",
+    "process_id": 1,
+    "results": [
+        {
+			"city_id": 3439525,
+			"temperature": 6.15,
+			"humidity": 59
+		},
+		{
+			"city_id": 3439781,
+			"temperature": 5.39,
+			"humidity": 73
+		},
+		{
+			"city_id": 3440645,
+			"temperature": 7.13,
+			"humidity": 73
+		},
+    ]
 }
 ```
 
