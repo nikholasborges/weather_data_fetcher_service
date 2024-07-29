@@ -1,4 +1,4 @@
-.PHONY: install run lint test clean dev ensure-poetry
+.PHONY: install run lint test clean dev ensure-poetry run-containers run-containers-dettached stop-containers
 
 # Default goal
 .DEFAULT_GOAL := help
@@ -46,6 +46,18 @@ run: ensure-poetry
 # Run app in dev mode
 dev: ensure-poetry
 	$(POETRY) run uvicorn main:app --host 0.0.0.0 --port 8000 --log-level info --workers 5 --reload
+
+# Run app as docker container
+run-containers:
+	docker-compose up --build
+
+# Run app as docker container in dettached mode
+run-containers-dettached:
+	docker-compose up --build -d
+
+# Stop running containers
+stop-containers:
+	docker-compose down
 
 # Clean up the project directory
 clean:
